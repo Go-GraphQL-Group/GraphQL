@@ -65,7 +65,7 @@ Perform a lookup of an entity by its ID.
 <td valign="top"><a href="#browsequery">BrowseQuery</a></td>
 <td>
 
-Browse all MusicBrainz entities directly linked to another entity.
+Browse all Star Wars entities.
 
 </td>
 </tr>
