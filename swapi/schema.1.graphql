@@ -743,7 +743,7 @@ type Query {
     lookup: LookupQuery
 
     """
-    Browse all MusicBrainz entities directly linked to another entity.
+    Browse all Star Wars entities.
     """
     browse: BrowseQuery
 
