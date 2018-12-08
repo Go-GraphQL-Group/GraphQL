@@ -1,0 +1,7 @@
+schema: ../swapi/schema.graphql
+overwrite: true
+generates:
+  client-types.ts:
+    - typescript-common
+    - typescript-client
+
