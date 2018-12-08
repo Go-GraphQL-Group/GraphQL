@@ -2,12 +2,144 @@
 
 package swapi
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+import (
+	"fmt"
+	"io"
+	"strconv"
+)
+
+type Film struct {
+	ID           string      `json:"id"`
+	Title        string      `json:"title"`
+	EpisodeID    *int        `json:"episode_id"`
+	OpeningCrawl *string     `json:"opening_crawl"`
+	Director     *string     `json:"director"`
+	Producer     *string     `json:"producer"`
+	ReleaseDate  *string     `json:"release_date"`
+	Species      []*Specie   `json:"species"`
+	Starships    []*Starship `json:"starships"`
+	Vehicles     []*Vehicle  `json:"vehicles"`
+	Characters   []*People   `json:"characters"`
+	Planets      []*Planet   `json:"planets"`
 }
 
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+type People struct {
+	ID        string      `json:"id"`
+	Name      string      `json:"name"`
+	BirthYear *string     `json:"birth_year"`
+	EyeColor  *string     `json:"eye_color"`
+	Gender    *string     `json:"gender"`
+	HairColor *string     `json:"hair_color"`
+	Height    *string     `json:"height"`
+	Mass      *string     `json:"mass"`
+	SkinColor *string     `json:"skin_color"`
+	Homeworld *Planet     `json:"homeworld"`
+	Films     []*Film     `json:"films"`
+	Species   []*Specie   `json:"species"`
+	Starships []*Starship `json:"starships"`
+	Vehicles  []*Vehicle  `json:"vehicles"`
+}
+
+type Planet struct {
+	ID             string    `json:"id"`
+	Name           string    `json:"name"`
+	Diameter       *string   `json:"diameter"`
+	RotationPeriod *string   `json:"rotation_period"`
+	OrbitalPeriod  *string   `json:"orbital_period"`
+	Gravity        *string   `json:"gravity"`
+	Population     *string   `json:"population"`
+	Climate        *string   `json:"climate"`
+	Terrain        *string   `json:"terrain"`
+	SurfaceWater   *string   `json:"surface_water"`
+	Residents      []*People `json:"residents"`
+	Films          []*Film   `json:"films"`
+}
+
+type Specie struct {
+	ID              string    `json:"id"`
+	Name            string    `json:"name"`
+	Classification  *string   `json:"classification"`
+	Designation     *string   `json:"designation"`
+	AverageHeight   *string   `json:"average_height"`
+	AverageLifespan *string   `json:"average_lifespan"`
+	EyeColors       *string   `json:"eye_colors"`
+	HairColors      *string   `json:"hair_colors"`
+	SkinColors      *string   `json:"skin_colors"`
+	Language        *string   `json:"language"`
+	Homeworld       *Planet   `json:"homeworld"`
+	People          []*People `json:"people"`
+	Films           []*Film   `json:"films"`
+}
+
+type Starship struct {
+	ID                   string    `json:"id"`
+	Name                 string    `json:"name"`
+	Model                *string   `json:"model"`
+	StarshipClass        *string   `json:"starship_class"`
+	Manufacturer         *string   `json:"manufacturer"`
+	CostInCredits        *string   `json:"cost_in_credits"`
+	Length               *string   `json:"length"`
+	Crew                 *string   `json:"crew"`
+	Passengers           *string   `json:"passengers"`
+	MaxAtmospheringSpeed *string   `json:"max_atmosphering_speed"`
+	HyperdriveRating     *string   `json:"hyperdrive_rating"`
+	MGLT                 *string   `json:"MGLT"`
+	CargoCapacity        *string   `json:"cargo_capacity"`
+	Consumables          *string   `json:"consumables"`
+	Films                []*Film   `json:"films"`
+	Pilots               []*People `json:"pilots"`
+}
+
+type Vehicle struct {
+	ID                   string    `json:"id"`
+	Name                 string    `json:"name"`
+	Model                *string   `json:"model"`
+	VehicleClass         *string   `json:"vehicle_class"`
+	Manufacturer         *string   `json:"manufacturer"`
+	Length               *string   `json:"length"`
+	CostInCredits        *string   `json:"cost_in_credits"`
+	Crew                 *string   `json:"crew"`
+	Passengers           *string   `json:"passengers"`
+	MaxAtmospheringSpeed *string   `json:"max_atmosphering_speed"`
+	CargoCapacity        *string   `json:"cargo_capacity"`
+	Consumables          *string   `json:"consumables"`
+	Films                []*Film   `json:"films"`
+	Pilots               []*People `json:"pilots"`
+}
+
+type Gender string
+
+const (
+	GenderNa     Gender = "NA"
+	GenderMale   Gender = "MALE"
+	GenderFemale Gender = "FEMALE"
+)
+
+func (e Gender) IsValid() bool {
+	switch e {
+	case GenderNa, GenderMale, GenderFemale:
+		return true
+	}
+	return false
+}
+
+func (e Gender) String() string {
+	return string(e)
+}
+
+func (e *Gender) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = Gender(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid Gender", str)
+	}
+	return nil
+}
+
+func (e Gender) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
 }

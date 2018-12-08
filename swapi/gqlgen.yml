@@ -12,6 +12,3 @@ model:
 resolver:
   filename: resolver.go
   type: Resolver
-models:
-  Todo:
-    model: github.com/Ernie1/YeYe/swapi.Todo
