@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/99designs/gqlgen/handler"
-	"github.com/Ernie1/YeYe/swapi"
+	"github.com/Ernie1/GraphQL/swapi"
 )
 
 const defaultPort = "8080"
