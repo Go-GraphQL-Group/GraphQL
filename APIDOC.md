@@ -5,11 +5,9 @@
 
   * [Query](#query)
   * [Objects](#objects)
-    * [BrowseQuery](#browsequery)
     * [Film](#film)
     * [FilmConnection](#filmconnection)
     * [FilmEdge](#filmedge)
-    * [LookupQuery](#lookupquery)
     * [PageInfo](#pageinfo)
     * [People](#people)
     * [PeopleConnection](#peopleconnection)
@@ -17,7 +15,6 @@
     * [Planet](#planet)
     * [PlanetConnection](#planetconnection)
     * [PlanetEdge](#planetedge)
-    * [SearchQuery](#searchquery)
     * [Specie](#specie)
     * [SpecieConnection](#specieconnection)
     * [SpecieEdge](#specieedge)
@@ -52,51 +49,113 @@ The query root, from which multiple types of requests can be made.
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>lookup</strong></td>
-<td valign="top"><a href="#lookupquery">LookupQuery</a></td>
+<td colspan="2" valign="top"><strong>people</strong></td>
+<td valign="top"><a href="#people">People</a></td>
 <td>
 
-Perform a lookup of an entity by its ID.
+Look up a specific people by its ID.
 
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>browse</strong></td>
-<td valign="top"><a href="#browsequery">BrowseQuery</a></td>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
 <td>
 
-Browse all Star Wars entities.
+The ID of the entity.
 
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>search</strong></td>
-<td valign="top"><a href="#searchquery">SearchQuery</a></td>
+<td colspan="2" valign="top"><strong>film</strong></td>
+<td valign="top"><a href="#film">Film</a></td>
 <td>
 
-Search for entities using Lucene query syntax.
+Look up a specific film by its ID.
 
 </td>
 </tr>
-</tbody>
-</table>
-
-## Objects
-
-### BrowseQuery
-
-A query for all Star Wars entities.
-
-<table>
-<thead>
 <tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td>
+
+The ID of the entity.
+
+</td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>starship</strong></td>
+<td valign="top"><a href="#starship">Starship</a></td>
+<td>
+
+Look up a specific starship by its ID.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td>
+
+The ID of the entity.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>vehicle</strong></td>
+<td valign="top"><a href="#vehicle">Vehicle</a></td>
+<td>
+
+Look up a specific vehicle by its ID.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td>
+
+The ID of the entity.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>specie</strong></td>
+<td valign="top"><a href="#specie">Specie</a></td>
+<td>
+
+Look up a specific specie by its ID.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td>
+
+The ID of the entity.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>planet</strong></td>
+<td valign="top"><a href="#planet">Planet</a></td>
+<td>
+
+Look up a specific planet by its ID.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">id</td>
+<td valign="top"><a href="#id">ID</a>!</td>
+<td>
+
+The ID of the entity.
+
+</td>
+</tr>
 <tr>
 <td colspan="2" valign="top"><strong>peoples</strong></td>
 <td valign="top"><a href="#peopleconnection">PeopleConnection</a>!</td>
@@ -259,8 +318,226 @@ The connection follows by.
 
 </td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong>peopleSearch</strong></td>
+<td valign="top"><a href="#peopleconnection">PeopleConnection</a></td>
+<td>
+
+Search for people entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for name, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>filmsSearch</strong></td>
+<td valign="top"><a href="#filmconnection">FilmConnection</a></td>
+<td>
+
+Search for film entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for title, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>starshipsSearch</strong></td>
+<td valign="top"><a href="#starshipconnection">StarshipConnection</a></td>
+<td>
+
+Search for starship entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for name or model, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>vehiclesSearch</strong></td>
+<td valign="top"><a href="#vehicleconnection">VehicleConnection</a></td>
+<td>
+
+Search for vehicle entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for name or model, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>speciesSearch</strong></td>
+<td valign="top"><a href="#specieconnection">SpecieConnection</a></td>
+<td>
+
+Search for specie entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for name, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>planetsSearch</strong></td>
+<td valign="top"><a href="#planetconnection">PlanetConnection</a></td>
+<td>
+
+Search for planet entities matching the given query.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">search</td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The search field for name, in Lucene search syntax.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">first</td>
+<td valign="top"><a href="#int">Int</a></td>
+<td>
+
+The number of entities in the connection.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">after</td>
+<td valign="top"><a href="#id">ID</a></td>
+<td>
+
+The connection follows by.
+
+</td>
+</tr>
 </tbody>
 </table>
+
+## Objects
 
 ### Film
 
@@ -368,10 +645,10 @@ An array of vehicle resources that are in this film.
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>characters</strong></td>
-<td valign="top">[<a href="#vehicle">Vehicle</a>]</td>
+<td valign="top">[<a href="#people">People</a>]</td>
 <td>
 
-An array of Vehicle resources that are in this film.
+An array of People resources that are in this film.
 
 </td>
 </tr>
@@ -420,15 +697,6 @@ A list of edges.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#film">Film</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
-
-</td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>totalCount</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td>
@@ -469,131 +737,6 @@ The item at the end of the edge.
 <td>
 
 A cursor for use in pagination.
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### LookupQuery
-
-A lookup of an individual Star Wars entity by its ID.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>people</strong></td>
-<td valign="top"><a href="#people">People</a></td>
-<td>
-
-Look up a specific people by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>film</strong></td>
-<td valign="top"><a href="#film">Film</a></td>
-<td>
-
-Look up a specific film by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>starship</strong></td>
-<td valign="top"><a href="#starship">Starship</a></td>
-<td>
-
-Look up a specific starship by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>vehicle</strong></td>
-<td valign="top"><a href="#vehicle">Vehicle</a></td>
-<td>
-
-Look up a specific vehicle by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>specie</strong></td>
-<td valign="top"><a href="#specie">Specie</a></td>
-<td>
-
-Look up a specific specie by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>planet</strong></td>
-<td valign="top"><a href="#planet">Planet</a></td>
-<td>
-
-Look up a specific planet by its ID.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">id</td>
-<td valign="top"><a href="#id">ID</a>!</td>
-<td>
-
-The ID of the entity.
 
 </td>
 </tr>
@@ -829,15 +972,6 @@ A list of edges.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#people">People</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
-
-</td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>totalCount</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td>
@@ -990,10 +1124,10 @@ The percentage of the planet surface that is naturally occurring water or bodies
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>residents</strong></td>
-<td valign="top">[<a href="#vehicle">Vehicle</a>]</td>
+<td valign="top">[<a href="#people">People</a>]</td>
 <td>
 
-An array of Vehicle resources that live on this planet.
+An array of People resources that live on this planet.
 
 </td>
 </tr>
@@ -1042,15 +1176,6 @@ A list of edges.
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#planet">Planet</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
-
-</td>
-</tr>
-<tr>
 <td colspan="2" valign="top"><strong>totalCount</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td>
@@ -1091,239 +1216,6 @@ The item at the end of the edge.
 <td>
 
 A cursor for use in pagination.
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### SearchQuery
-
-A search for Star Wars entities using Lucene query syntax.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>peoples</strong></td>
-<td valign="top"><a href="#peopleconnection">PeopleConnection</a></td>
-<td>
-
-Search for people entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for name, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>films</strong></td>
-<td valign="top"><a href="#filmconnection">FilmConnection</a></td>
-<td>
-
-Search for film entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for title, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>starships</strong></td>
-<td valign="top"><a href="#starshipconnection">StarshipConnection</a></td>
-<td>
-
-Search for starship entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for name or model, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>vehicles</strong></td>
-<td valign="top"><a href="#vehicleconnection">VehicleConnection</a></td>
-<td>
-
-Search for vehicle entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for name or model, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>species</strong></td>
-<td valign="top"><a href="#specieconnection">SpecieConnection</a></td>
-<td>
-
-Search for specie entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for name, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>planets</strong></td>
-<td valign="top"><a href="#planetconnection">PlanetConnection</a></td>
-<td>
-
-Search for planet entities matching the given query.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">search</td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The search field for name, in Lucene search syntax.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-The number of entities in the connection.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">after</td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-The connection follows by.
 
 </td>
 </tr>
@@ -1461,6 +1353,15 @@ An array of film resources that this species has appeared in.
 
 </td>
 </tr>
+<tr>
+<td colspan="2" valign="top"><strong>People</strong></td>
+<td valign="top">[<a href="#people">People</a>]</td>
+<td>
+
+An array of People resources that this species has appeared in.
+
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -1493,15 +1394,6 @@ Information to aid in pagination.
 <td>
 
 A list of edges.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#specie">Specie</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
 
 </td>
 </tr>
@@ -1703,10 +1595,10 @@ An array of film resources that this starship has appeared in.
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>pilots</strong></td>
-<td valign="top">[<a href="#vehicle">Vehicle</a>]</td>
+<td valign="top">[<a href="#people">People</a>]</td>
 <td>
 
-An array of Vehicle resources that this starship has been piloted by.
+An array of People resources that this starship has been piloted by.
 
 </td>
 </tr>
@@ -1742,15 +1634,6 @@ Information to aid in pagination.
 <td>
 
 A list of edges.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#starship">Starship</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
 
 </td>
 </tr>
@@ -1934,10 +1817,10 @@ An array of film resources that this vehicle has appeared in.
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>pilots</strong></td>
-<td valign="top">[<a href="#vehicle">Vehicle</a>]</td>
+<td valign="top">[<a href="#people">People</a>]</td>
 <td>
 
-An array of Vehicle resources that this vehicle has been piloted by.
+An array of People resources that this vehicle has been piloted by.
 
 </td>
 </tr>
@@ -1973,15 +1856,6 @@ Information to aid in pagination.
 <td>
 
 A list of edges.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>nodes</strong></td>
-<td valign="top">[<a href="#vehicle">Vehicle</a>!]</td>
-<td>
-
-A list of nodes in the connection (without going through the `edges` field).
 
 </td>
 </tr>
